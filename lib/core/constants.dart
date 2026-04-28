@@ -4,30 +4,29 @@ class AppConstants {
   static const String phone = '+91 63853 95991';
   static const String email = 'richard20021999@gmail.com';
   static const String location = 'Tiruchirappalli, Tamil Nadu, India';
-  static const String linkedIn = 'https://www.linkedin.com/in/richard-flutter-developer';
-  static const String github = 'https://github.com/richard-s';
+  static const String linkedIn =
+      'https://www.linkedin.com/in/richard-flutter-developer';
+  static const String github = 'https://github.com/Richard-flutter-developer';
   static const String whatsApp = 'https://wa.me/916385395991';
 
   static const String summary =
-      'Flutter Developer with 2+ years of professional experience building, '
-      'shipping, and maintaining cross-platform mobile applications for Android '
-      'and iOS using Flutter and Dart. Skilled in GetX, BLoC, and Provider state '
-      'management, RESTful API integration, Firebase services, Razorpay payment '
-      'gateway, and Google Maps API. Successfully shipped multiple production apps '
-      'on the Apple App Store.';
+      'Flutter Developer with 2+ years of experience building 15+ production apps, '
+      'including 6 on the Apple App Store and 9 on the Google Play Store. '
+      'Expertise in GetX, BLoC, RESTful APIs, and Firebase integration across '
+      'Finance, Business, and E-commerce ecosystems.';
 
   static const String aboutMe =
       "I'm a passionate Flutter Developer who loves turning ideas into beautiful, "
       "functional mobile applications. With expertise in Clean Architecture, MVVM "
-      "design patterns, and Agile methodologies, I deliver production-grade apps "
-      "that users love. I've successfully shipped multiple apps on the Apple App "
-      "Store across Finance, Business, and Food & Drink categories.";
+      "design patterns, and 2+ years of experience, I've successfully shipped "
+      "6 apps on the Apple App Store and 9 on the Google Play Store across "
+      "Finance, Business, and Food & Drink categories.";
 
   static const List<Map<String, String>> stats = [
     {'count': '2+', 'label': 'Years\nExperience'},
-    {'count': '6+', 'label': 'Projects\nDelivered'},
-    {'count': '5+', 'label': 'Apps on\nApp Store'},
-    {'count': '10+', 'label': 'Custom\nWidgets'},
+    {'count': '15+', 'label': 'Apps\nDelivered'},
+    {'count': '6', 'label': 'Apps on\nApp Store'},
+    {'count': '9', 'label': 'Apps on\nPlay Store'},
   ];
 
   static const Map<String, List<String>> skills = {
@@ -124,16 +123,48 @@ class AppConstants {
 
   static const List<Map<String, dynamic>> projects = [
     {
+      'name': 'Star Business Forum',
+      'subtitle': 'Professional Networking Ecosystem',
+      'period': 'Mar 2026 - Present',
+      'tech': 'Flutter, Dart, RESTful APIs, Business Networking',
+      'status': 'App Store & Play Store (Live)',
+      'image': 'assets/projects/star_business.png',
+      'images': [
+        'assets/projects/star_forum/splash.png',
+        'assets/projects/star_forum/login.png',
+        'assets/projects/star_forum/dashboard.png',
+        'assets/projects/star_forum/notifications.png',
+        'assets/projects/star_forum/search.png',
+      ],
+      'points': [
+        'Premium networking ecosystem with tiered membership (Platinum, Gold) and business performance tracking.',
+        'Member Dashboard: Comprehensive view of 121s, referrals, visitors, and business transaction values.',
+        'Real-time Notifications: Instant alerts for community badges, meeting requests, and referral activity.',
+        'Smart Networking: Map-based member discovery and automated notification system for community updates.',
+      ],
+    },
+    {
       'name': 'La-Venjal',
       'subtitle': 'Water Delivery Platform',
       'period': 'Mar 2025 - Present',
       'tech': 'Flutter, Dart, GetX, Firebase, RESTful APIs, FCM',
-      'status': 'Apple App Store (Live)',
+      'status': 'App Store & Play Store (Live)',
+      'image': 'assets/projects/lavenjal.png',
+      'images': [
+        'assets/projects/lavenjal_screens/splash.png',
+        'assets/projects/lavenjal_screens/product.png',
+        'assets/projects/lavenjal_screens/shop.png',
+        'assets/projects/lavenjal_screens/wishlist.png',
+        'assets/projects/lavenjal_screens/orders.png',
+        'assets/projects/lavenjal_vendor/dashboard.png',
+        'assets/projects/lavenjal_vendor/insights.png',
+        'assets/projects/lavenjal_vendor/history.png',
+      ],
       'points': [
-        'Engineered two cross-platform Flutter apps for on-demand booking and delivery of drinking water.',
-        'Customer App: GPS-based supplier discovery, order booking, real-time tracking, and push notifications.',
-        'Vendor App: Order management dashboard, delivery assignment, inventory control.',
-        'Launched both apps on the Apple App Store via App Store Connect.',
+        'End-to-end water delivery ecosystem featuring high-performance Customer and Vendor applications.',
+        'Customer App: Features seamless product discovery, real-time tracking, and automated order updates.',
+        'Vendor App: Comprehensive order management with a dashboard for active tasks and a detailed delivery history.',
+        'Performance Insights: Advanced analytics for vendors to track delivery stats and business growth metrics.',
       ],
     },
     {
@@ -141,12 +172,20 @@ class AppConstants {
       'subtitle': 'Digital Chit Fund Management',
       'period': '2024 - Present',
       'tech': 'Flutter, Dart, GetX, Firebase, RESTful APIs',
-      'status': 'Apple App Store - Finance (Live)',
+      'status': 'App Store & Play Store - Finance (Live)',
+      'image': 'assets/projects/aram.png',
+      'images': [
+        'assets/projects/aram_screens/splash.png',
+        'assets/projects/aram_screens/login.png',
+        'assets/projects/aram_screens/dashboard.png',
+        'assets/projects/aram_screens/plans.png',
+        'assets/projects/aram_screens/kyc.png',
+      ],
       'points': [
-        'Built a secure fintech app for chit fund management, digitizing group savings operations.',
-        'Chit group tracking, installment management, auction workflows, and member administration.',
-        'OTP authentication and role-based access control using Firebase Authentication.',
-        'Deployed to the Apple App Store under the Finance category.',
+        'Secure fintech platform for digitized chit fund management and group savings.',
+        'Features real-time payment tracking, upcoming installment alerts, and auction management.',
+        'Implemented a robust KYC verification system with PAN and Aadhaar document upload capabilities.',
+        'Transparent ledger system with 100% record tracking for member contributions and distributions.',
       ],
     },
     {
@@ -154,24 +193,67 @@ class AppConstants {
       'subtitle': 'Professional Networking App',
       'period': '2024 - Present',
       'tech': 'Flutter, Dart, GetX, Firebase, RESTful APIs',
-      'status': 'Apple App Store - Business (Live)',
+      'status': 'App Store & Play Store - Business (Live)',
+      'image': 'assets/projects/cni.png',
+      'images': [
+        'assets/projects/cni_forum/splash.png',
+        'assets/projects/cni_forum/dashboard.png',
+        'assets/projects/cni_forum/performance.png',
+        'assets/projects/cni_forum/updates.png',
+        'assets/projects/cni_forum/search.png',
+        'assets/projects/cni_forum/profile.png',
+      ],
       'points': [
-        'Cross-platform networking app for entrepreneurs and professionals.',
-        'Member discovery, referral exchange, community feeds, and real-time messaging.',
-        'iPhone and iPad compatibility with iOS 13+ support.',
-        'Maintained live production app with regular version releases.',
+        'A comprehensive networking platform for construction professionals to connect, refer, and grow.',
+        'Member Dashboard: Smart overview of contribution points, upcoming meetings, and business transactions.',
+        'Admin Hub: Integrated tools for attendance marking, meeting creation, and chief guest list management.',
+        'Smart Member Search: Location-based discovery and category filters for finding nearby business partners.',
       ],
     },
     {
-      'name': 'DMan',
-      'subtitle': 'On-Demand E-Commerce App',
-      'period': 'Jan 2024 - Dec 2024',
-      'tech': 'Flutter, Dart, GetX, Firebase Realtime Database',
-      'status': 'Completed',
+      'name': 'D-Man Store Partner',
+      'subtitle': 'On-Demand Multi-Vendor Merchant App',
+      'period': 'Jan 2024 - Present',
+      'tech': 'Flutter, Dart, GetX, Firebase Realtime Database, FCM',
+      'status': 'Google Play Store (Live)',
+      'image': 'assets/projects/dman.png',
+      'images': [
+        'assets/projects/dman_merchant/splash.png',
+        'assets/projects/dman_merchant/insights.png',
+        'assets/projects/dman_merchant/menus.png',
+        'assets/projects/dman_merchant/stores.png',
+        'assets/projects/dman_merchant/plans.png',
+        'assets/projects/dman_merchant/settings.png',
+      ],
       'points': [
-        'Developed customer and merchant Flutter apps with real-time order tracking.',
-        'Built 10+ reusable custom widgets, reducing UI build time by 30%.',
-        'OTP authentication and role-based access control for multi-role users.',
+        'Comprehensive Merchant application for store partners to manage digital presence and daily sales.',
+        'Merchant Dashboard: Real-time insights into today’s sales, weekly growth, and monthly performance metrics.',
+        'Subscription Management: Integrated tiered plans (Basic, Advance, Boost) for partner flexibility.',
+        'Sales Analytics: Advanced tracking of total orders, on-time deliveries, and fast-selling items with detailed summaries.',
+      ],
+    },
+    {
+      'name': 'Ramesh Traders',
+      'subtitle': 'B2B Wholesale Management',
+      'period': 'May 2025 - Oct 2025',
+      'tech': 'Flutter, Dart, GetX, Dio HTTP Client, RESTful APIs',
+      'status': 'Google Play Store (Live - 3 Apps)',
+      'image': 'assets/projects/ramesh_traders.png',
+      'images': [
+        'assets/projects/ramesh_wholesaler/home.png',
+        'assets/projects/ramesh_wholesaler/category.png',
+        'assets/projects/ramesh_wholesaler/order_again.png',
+        'assets/projects/ramesh_wholesaler/search.png',
+        'assets/projects/ramesh_lineman/dashboard.png',
+        'assets/projects/ramesh_lineman/kilometer.png',
+        'assets/projects/ramesh_deliveryman/dashboard.png',
+        'assets/projects/ramesh_deliveryman/list.png',
+      ],
+      'points': [
+        'A triple-app ecosystem (Wholesaler, Lineman, Deliveryman) for a comprehensive grocery supply chain.',
+        'Wholesaler App: Features organized category views, advanced search, and favorites reordering.',
+        'Lineman App: Integrated travel tracking and smart dashboard for field sales operations.',
+        'Deliveryman App: Advanced task dashboard for managing deliveries, payment collections, returns, and vehicle compliance.',
       ],
     },
     {
@@ -180,24 +262,13 @@ class AppConstants {
       'period': 'Mar 2025 - Jul 2025',
       'tech': 'Flutter, GetX, Google Maps, Razorpay, FCM',
       'status': '4 Mobile Applications',
+      'image': null,
+      'images': [],
       'points': [
-        'Customer App: Product browsing, Razorpay checkout, real-time order tracking.',
-        'Wholesaler App: Inventory management, sales analytics, payment-due reporting.',
-        'Lineman App: GPS-based tracking, kilometer logging, sales dashboards.',
-        'Deliveryman App: Google Maps route guidance, delivery assignment, proof-of-delivery.',
-      ],
-    },
-    {
-      'name': 'Ramesh Traders',
-      'subtitle': 'B2B Wholesale Management',
-      'period': 'May 2025 - Oct 2025',
-      'tech': 'Flutter, Dart, GetX, Dio HTTP Client, RESTful APIs',
-      'status': '3 Mobile Applications',
-      'points': [
-        'Wholesaler App: Paginated order processing, PDF invoice download, sales dashboard.',
-        'Lineman App: Customer visit logging with GPS kilometer submission.',
-        'Deliveryman App: Real-time delivery assignment, offline error-handling.',
-        'Optimized API performance using Dio interceptors, reducing network errors by 35%.',
+        'Customer App: Product browsing, Razorpay checkout, and real-time order tracking.',
+        'Wholesaler App: Inventory management, sales analytics, and payment-due reporting.',
+        'Lineman App: GPS-based tracking, kilometer logging, and field sales dashboards.',
+        'Deliveryman App: Google Maps route guidance, delivery assignment, and proof-of-delivery.',
       ],
     },
   ];

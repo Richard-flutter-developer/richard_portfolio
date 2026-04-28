@@ -33,10 +33,14 @@ class NavBar extends StatelessWidget {
       child: Row(
         children: [
           // Logo
-          GradientText(
-            'RS',
-            gradient: AppTheme.neonGradient,
-            style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          Image.asset(
+            'assets/logo.png',
+            height: 40,
+            errorBuilder: (context, error, stackTrace) => GradientText(
+              'RS',
+              gradient: AppTheme.neonGradient,
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
           ),
           const Spacer(),
           if (!isMobile) ...[
@@ -160,12 +164,16 @@ class NavDrawer extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(24),
-              child: GradientText(
-                'RS',
-                gradient: AppTheme.neonGradient,
-                style: const TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
+              child: Image.asset(
+                'assets/logo.png',
+                height: 50,
+                errorBuilder: (context, error, stackTrace) => GradientText(
+                  'RS',
+                  gradient: AppTheme.neonGradient,
+                  style: const TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
