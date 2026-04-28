@@ -1,17 +1,29 @@
 # richard_portfolio
 
-A new Flutter project.
+A Flutter-based portfolio website.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Deployment
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+The best free option for hosting this portfolio is **Netlify**.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# richard_portfolio
+### Steps to Deploy:
+
+1. **Build the web version:**
+   ```bash
+   flutter build web
+   ```
+2. **Deploy to Netlify:**
+   Drag the `build/web` directory into the Netlify upload area.
+
+### Why Netlify?
+- **Cost:** Free
+- **Speed:** Fast CDN
+- **Custom domain:** Supported
+- **SSL:** Free (Automatic)
+- **Auto deploy from Git:** Yes (Link your repository for automatic builds)
+
+Live URL: [https://richard-portfolio.netlify.app](https://richard-portfolio.netlify.app)
