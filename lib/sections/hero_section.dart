@@ -222,7 +222,7 @@ class _DownloadCVButtonState extends State<_DownloadCVButton> {
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
       child: GestureDetector(
-        onTap: () => launchUrl(Uri.parse('assets/pdf/Richard_%20Flutter%20Developer.pdf')),
+        onTap: () => launchUrl(Uri.parse('/assets/pdf/Richard_%20Flutter%20Developer.pdf')),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
