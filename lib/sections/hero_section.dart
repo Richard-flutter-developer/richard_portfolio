@@ -228,31 +228,9 @@ class HeroSection extends StatelessWidget {
                 ],
               ),
             ),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GradientText(
-                    'RS',
-                    gradient: AppTheme.neonGradient,
-                    style: const TextStyle(
-                      fontSize: 72,
-                      fontWeight: FontWeight.w900,
-                      letterSpacing: 4,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'FLUTTER DEV',
-                    style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.6),
-                      fontSize: 14,
-                      letterSpacing: 6,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
+            child: Image.asset(
+              'assets/profile.png',
+              fit: BoxFit.cover,
             ),
           ),
         ),

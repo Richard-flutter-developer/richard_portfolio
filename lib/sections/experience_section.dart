@@ -19,10 +19,7 @@ class ExperienceSection extends StatelessWidget {
         gradient: RadialGradient(
           center: const Alignment(0.5, 0.5),
           radius: 1.5,
-          colors: [
-            AppTheme.accentCyan.withOpacity(0.03),
-            AppTheme.bgSecondary,
-          ],
+          colors: [AppTheme.accentCyan.withOpacity(0.03), AppTheme.bgSecondary],
         ),
       ),
       child: Column(
@@ -81,10 +78,7 @@ class _ExperienceCardState extends State<_ExperienceCard> {
                       gradient: _hovered ? AppTheme.accentGradient : null,
                       border: _hovered
                           ? null
-                          : Border.all(
-                              color: AppTheme.accentCyan,
-                              width: 2,
-                            ),
+                          : Border.all(color: AppTheme.accentCyan, width: 2),
                       boxShadow: _hovered
                           ? [
                               BoxShadow(
