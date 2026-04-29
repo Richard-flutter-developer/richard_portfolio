@@ -129,6 +129,10 @@ class AppConstants {
       'tech': 'Flutter, Dart, RESTful APIs, Business Networking',
       'status': 'App Store & Play Store (Live)',
       'image': 'assets/projects/star_business.png',
+      'playStoreUrl':
+          'https://play.google.com/store/apps/details?id=com.starbusiness.starapp',
+      'appStoreUrl':
+          'https://apps.apple.com/in/app/star-business-forum/id6761415913',
       'images': [
         'assets/projects/star_forum/splash.png',
         'assets/projects/star_forum/login.png',
@@ -150,6 +154,26 @@ class AppConstants {
       'tech': 'Flutter, Dart, GetX, Firebase, RESTful APIs, FCM',
       'status': 'App Store & Play Store (Live)',
       'image': 'assets/projects/lavenjal.png',
+      'playStoreUrl':
+          'https://play.google.com/store/apps/details?id=com.lavenjal.user.la_venjal',
+      'appStoreUrl':
+          'https://apps.apple.com/in/app/la-venjal/id6761256772',
+      'subApps': [
+        {
+          'name': 'La-Venjal Customer',
+          'playStoreUrl':
+              'https://play.google.com/store/apps/details?id=com.lavenjal.user.la_venjal',
+          'appStoreUrl':
+              'https://apps.apple.com/in/app/la-venjal/id6761256772',
+        },
+        {
+          'name': 'Lavenjal Vendor',
+          'playStoreUrl':
+              'https://play.google.com/store/apps/details?id=com.lavenjal.lavenjal_vendor',
+          'appStoreUrl':
+              'https://apps.apple.com/in/app/lavenjal-vendor/id6761259545',
+        },
+      ],
       'images': [
         'assets/projects/lavenjal_screens/splash.png',
         'assets/projects/lavenjal_screens/product.png',
@@ -174,6 +198,10 @@ class AppConstants {
       'tech': 'Flutter, Dart, GetX, Firebase, RESTful APIs',
       'status': 'App Store & Play Store - Finance (Live)',
       'image': 'assets/projects/aram.png',
+      'playStoreUrl':
+          'https://play.google.com/store/apps/details?id=com.aram_enterprises.chits_app',
+      'appStoreUrl':
+          'https://apps.apple.com/in/app/aram-enterprises/id6760998577',
       'images': [
         'assets/projects/aram_screens/splash.png',
         'assets/projects/aram_screens/login.png',
@@ -195,6 +223,10 @@ class AppConstants {
       'tech': 'Flutter, Dart, GetX, Firebase, RESTful APIs',
       'status': 'App Store & Play Store - Business (Live)',
       'image': 'assets/projects/cni.png',
+      'playStoreUrl':
+          'https://play.google.com/store/apps/details?id=com.cni.business',
+      'appStoreUrl':
+          'https://apps.apple.com/in/app/cni-business-forum/id6760016066',
       'images': [
         'assets/projects/cni_forum/splash.png',
         'assets/projects/cni_forum/dashboard.png',
@@ -217,6 +249,9 @@ class AppConstants {
       'tech': 'Flutter, Dart, GetX, Firebase Realtime Database, FCM',
       'status': 'Google Play Store (Live)',
       'image': 'assets/projects/dman.png',
+      'playStoreUrl':
+          'https://play.google.com/store/apps/details?id=com.dman.merchant',
+      'appStoreUrl': null,
       'images': [
         'assets/projects/dman_merchant/splash.png',
         'assets/projects/dman_merchant/insights.png',
@@ -227,7 +262,7 @@ class AppConstants {
       ],
       'points': [
         'Comprehensive Merchant application for store partners to manage digital presence and daily sales.',
-        'Merchant Dashboard: Real-time insights into today’s sales, weekly growth, and monthly performance metrics.',
+        'Merchant Dashboard: Real-time insights into today\'s sales, weekly growth, and monthly performance metrics.',
         'Subscription Management: Integrated tiered plans (Basic, Advance, Boost) for partner flexibility.',
         'Sales Analytics: Advanced tracking of total orders, on-time deliveries, and fast-selling items with detailed summaries.',
       ],
@@ -239,6 +274,29 @@ class AppConstants {
       'tech': 'Flutter, Dart, GetX, Dio HTTP Client, RESTful APIs',
       'status': 'Google Play Store (Live - 3 Apps)',
       'image': 'assets/projects/ramesh_traders.png',
+      'playStoreUrl':
+          'https://play.google.com/store/apps/details?id=com.ocean.ramesh_traders_wholesaler',
+      'appStoreUrl': null,
+      'subApps': [
+        {
+          'name': 'Wholesaler',
+          'playStoreUrl':
+              'https://play.google.com/store/apps/details?id=com.ocean.ramesh_traders_wholesaler',
+          'appStoreUrl': null,
+        },
+        {
+          'name': 'Lineman',
+          'playStoreUrl':
+              'https://play.google.com/store/apps/details?id=com.ocean.ramesh_trader_lineman_app',
+          'appStoreUrl': null,
+        },
+        {
+          'name': 'Delivery Man',
+          'playStoreUrl':
+              'https://play.google.com/store/apps/details?id=com.ocean.ramesh_trader_deliveryman',
+          'appStoreUrl': null,
+        },
+      ],
       'images': [
         'assets/projects/ramesh_wholesaler/home.png',
         'assets/projects/ramesh_wholesaler/category.png',
