@@ -142,72 +142,139 @@ class HeroSection extends StatelessWidget {
   }
 
   Widget _buildAvatar() {
-    return Container(
-      width: 280,
-      height: 280,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        gradient: AppTheme.cardBorderGradient,
-        boxShadow: [
-          BoxShadow(
-            color: AppTheme.neonPurple.withOpacity(0.3),
-            blurRadius: 40,
-            spreadRadius: 5,
+    return Stack(
+      alignment: Alignment.center,
+      clipBehavior: Clip.none,
+      children: [
+        // Background Ring
+        Container(
+          width: 320,
+          height: 320,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: AppTheme.neonBlue.withOpacity(0.2),
+              width: 1,
+            ),
           ),
-          BoxShadow(
-            color: AppTheme.neonBlue.withOpacity(0.2),
-            blurRadius: 60,
-            spreadRadius: 10,
-          ),
-        ],
-      ),
-      child: Container(
-        margin: const EdgeInsets.all(3),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(22),
-          color: AppTheme.bgCard,
         ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(22),
-          child: Image.asset(
-            'assets/profile.png',
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Color(0xFF1a1a3e), Color(0xFF0d0d2b)],
-                ),
+        // Outer Glow
+        Container(
+          width: 240,
+          height: 240,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            boxShadow: [
+              BoxShadow(
+                color: AppTheme.neonPurple.withOpacity(0.2),
+                blurRadius: 100,
+                spreadRadius: 20,
               ),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    GradientText(
-                      'RS',
-                      gradient: AppTheme.neonGradient,
-                      style: const TextStyle(
-                        fontSize: 80,
-                        fontWeight: FontWeight.bold,
-                      ),
+            ],
+          ),
+        ),
+        // Floating Symbols
+        Positioned(
+          top: 20,
+          left: -40,
+          child: Opacity(
+            opacity: 0.3,
+            child: GradientText(
+              '<',
+              gradient: AppTheme.neonGradient,
+              style: const TextStyle(
+                fontSize: 60,
+                fontWeight: FontWeight.w100,
+                fontFamily: 'Courier',
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 20,
+          right: -40,
+          child: Opacity(
+            opacity: 0.3,
+            child: GradientText(
+              '>',
+              gradient: AppTheme.neonGradient,
+              style: const TextStyle(
+                fontSize: 60,
+                fontWeight: FontWeight.w100,
+                fontFamily: 'Courier',
+              ),
+            ),
+          ),
+        ),
+        // Main Avatar Card
+        Container(
+          width: 280,
+          height: 280,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            gradient: AppTheme.cardBorderGradient,
+            boxShadow: [
+              BoxShadow(
+                color: AppTheme.neonPurple.withOpacity(0.3),
+                blurRadius: 40,
+                spreadRadius: 5,
+              ),
+              BoxShadow(
+                color: AppTheme.neonBlue.withOpacity(0.2),
+                blurRadius: 60,
+                spreadRadius: 10,
+              ),
+            ],
+          ),
+          child: Container(
+            margin: const EdgeInsets.all(3),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22),
+              color: AppTheme.bgCard,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(22),
+              child: Image.asset(
+                'assets/profile.png',
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0xFF1a1a3e), Color(0xFF0d0d2b)],
                     ),
-                    const SizedBox(height: 8),
-                    const Text(
-                      'Flutter Dev',
-                      style: TextStyle(
-                        color: AppTheme.textSecondary,
-                        fontSize: 16,
-                        letterSpacing: 3,
-                      ),
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GradientText(
+                          'RS',
+                          gradient: AppTheme.neonGradient,
+                          style: const TextStyle(
+                            fontSize: 80,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        const Text(
+                          'Flutter Dev',
+                          style: TextStyle(
+                            color: AppTheme.textSecondary,
+                            fontSize: 16,
+                            letterSpacing: 3,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }
