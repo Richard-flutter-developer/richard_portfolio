@@ -21,20 +21,16 @@ class HeroSection extends StatelessWidget {
       ),
       padding: EdgeInsets.fromLTRB(
         isMobile ? padding : padding + 60,
-        80,
+        60,
         padding,
-        80,
+        60,
       ),
       decoration: BoxDecoration(
         color: AppTheme.bgPrimary,
         gradient: RadialGradient(
-          center: const Alignment(0.6, -0.5),
-          radius: 1.0,
-          colors: [
-            AppTheme.accentCyan.withOpacity(0.06),
-            AppTheme.accentPurple.withOpacity(0.03),
-            AppTheme.bgPrimary,
-          ],
+          center: const Alignment(0.7, -0.3),
+          radius: 1.2,
+          colors: [AppTheme.neonBlue.withOpacity(0.08), AppTheme.bgPrimary],
         ),
       ),
       child: isMobile
@@ -48,8 +44,8 @@ class HeroSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Expanded(flex: 3, child: _buildTextContent(context)),
-        const SizedBox(width: 80),
-        Expanded(flex: 2, child: Center(child: _buildAvatar())),
+        const SizedBox(width: 60),
+        Expanded(flex: 2, child: _buildAvatar()),
       ],
     );
   }
@@ -59,7 +55,7 @@ class HeroSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _buildAvatar(),
-        const SizedBox(height: 48),
+        const SizedBox(height: 40),
         _buildTextContent(context),
       ],
     );
@@ -73,53 +69,17 @@ class HeroSection extends StatelessWidget {
           : CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        // Greeting badge
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: AppTheme.accentCyan.withOpacity(0.08),
-            border: Border.all(
-              color: AppTheme.accentCyan.withOpacity(0.2),
-            ),
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 8,
-                height: 8,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppTheme.accentCyan,
-                ),
-              ),
-              const SizedBox(width: 8),
-              const Text(
-                'Available for work',
-                style: TextStyle(
-                  color: AppTheme.accentCyan,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 28),
-        // Name with typewriter
         SizedBox(
-          height: isMobile ? 48 : 60,
+          height: 50,
           child: AnimatedTextKit(
             repeatForever: true,
             animatedTexts: [
               TypewriterAnimatedText(
-                'Hi, I\'m ${AppConstants.name}',
+                'I Am ${AppConstants.name} 👋',
                 textStyle: TextStyle(
-                  fontSize: isMobile ? 34 : 52,
-                  fontWeight: FontWeight.w800,
+                  fontSize: isMobile ? 32 : 48,
+                  fontWeight: FontWeight.bold,
                   color: AppTheme.textPrimary,
-                  letterSpacing: -1,
                 ),
                 speed: const Duration(milliseconds: 80),
               ),
@@ -127,40 +87,44 @@ class HeroSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 12),
-        // Role
         Row(
           mainAxisSize: isMobile ? MainAxisSize.min : MainAxisSize.max,
           children: [
-            GradientText(
-              'Flutter Developer',
-              gradient: AppTheme.accentGradient,
+            Text(
+              'Flutter ',
               style: TextStyle(
-                fontSize: isMobile ? 24 : 36,
-                fontWeight: FontWeight.w700,
-                letterSpacing: -0.5,
+                fontSize: isMobile ? 28 : 42,
+                fontWeight: FontWeight.bold,
+                color: AppTheme.textPrimary,
+              ),
+            ),
+            GradientText(
+              'Developer',
+              gradient: AppTheme.neonGradient,
+              style: TextStyle(
+                fontSize: isMobile ? 28 : 42,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
-        const SizedBox(height: 24),
-        // Summary
+        const SizedBox(height: 20),
         Text(
           AppConstants.summary,
           textAlign: isMobile ? TextAlign.center : TextAlign.left,
-          maxLines: 4,
+          maxLines: 3,
           overflow: TextOverflow.ellipsis,
           style: const TextStyle(
             fontSize: 15,
             color: AppTheme.textSecondary,
-            height: 1.7,
+            height: 1.6,
           ),
         ),
-        const SizedBox(height: 36),
-        // CTA Row
+        const SizedBox(height: 32),
         Row(
           mainAxisSize: isMobile ? MainAxisSize.min : MainAxisSize.max,
           children: [
-            const _DownloadCVButton(),
+            _DownloadCVButton(),
             const SizedBox(width: 16),
             _SocialIconButton(
               icon: FontAwesomeIcons.linkedinIn,
@@ -173,64 +137,69 @@ class HeroSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 56),
-        // Stats row
-        Wrap(
-          spacing: isMobile ? 24 : 48,
-          runSpacing: 16,
-          alignment: WrapAlignment.center,
-          children: AppConstants.stats.map((stat) {
-            return _InlineStat(
-              count: stat['count']!,
-              label: stat['label']!.replaceAll('\n', ' '),
-            );
-          }).toList(),
-        ),
       ],
     );
   }
 
   Widget _buildAvatar() {
     return Container(
-      width: 300,
-      height: 300,
+      width: 280,
+      height: 280,
       decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        gradient: AppTheme.accentGradient,
+        borderRadius: BorderRadius.circular(24),
+        gradient: AppTheme.cardBorderGradient,
         boxShadow: [
           BoxShadow(
-            color: AppTheme.accentCyan.withOpacity(0.25),
-            blurRadius: 60,
-            spreadRadius: 10,
+            color: AppTheme.neonPurple.withOpacity(0.3),
+            blurRadius: 40,
+            spreadRadius: 5,
           ),
           BoxShadow(
-            color: AppTheme.accentPurple.withOpacity(0.15),
-            blurRadius: 80,
-            spreadRadius: 20,
+            color: AppTheme.neonBlue.withOpacity(0.2),
+            blurRadius: 60,
+            spreadRadius: 10,
           ),
         ],
       ),
       child: Container(
         margin: const EdgeInsets.all(3),
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(22),
           color: AppTheme.bgCard,
         ),
-        child: ClipOval(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(22),
           child: Container(
-            decoration: BoxDecoration(
-              gradient: RadialGradient(
-                center: Alignment.center,
-                radius: 0.8,
-                colors: [
-                  AppTheme.accentCyan.withOpacity(0.05),
-                  AppTheme.bgCard,
-                ],
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Color(0xFF1a1a3e), Color(0xFF0d0d2b)],
               ),
             ),
-            child: Image.asset(
-              'assets/profile.png',
-              fit: BoxFit.cover,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GradientText(
+                    'RS',
+                    gradient: AppTheme.neonGradient,
+                    style: const TextStyle(
+                      fontSize: 80,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Flutter Dev',
+                    style: TextStyle(
+                      color: AppTheme.textSecondary,
+                      fontSize: 16,
+                      letterSpacing: 3,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -239,41 +208,7 @@ class HeroSection extends StatelessWidget {
   }
 }
 
-// ── Inline stat for hero section ──
-class _InlineStat extends StatelessWidget {
-  const _InlineStat({required this.count, required this.label});
-  final String count;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        GradientText(
-          count,
-          gradient: AppTheme.accentGradient,
-          style: const TextStyle(
-            fontSize: 28,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
-        const SizedBox(width: 8),
-        Text(
-          label,
-          style: const TextStyle(
-            color: AppTheme.textSecondary,
-            fontSize: 13,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
 class _DownloadCVButton extends StatefulWidget {
-  const _DownloadCVButton();
-
   @override
   State<_DownloadCVButton> createState() => _DownloadCVButtonState();
 }
@@ -287,21 +222,19 @@ class _DownloadCVButtonState extends State<_DownloadCVButton> {
       onEnter: (_) => setState(() => _hovered = true),
       onExit: (_) => setState(() => _hovered = false),
       child: GestureDetector(
-        onTap: () => launchUrl(
-          Uri.parse('/assets/pdf/Richard_%20Flutter%20Developer.pdf'),
-        ),
+        onTap: () => launchUrl(Uri.parse('/assets/pdf/Richard_%20Flutter%20Developer.pdf')),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
           decoration: BoxDecoration(
             gradient: AppTheme.buttonGradient,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(30),
             boxShadow: _hovered
                 ? [
                     BoxShadow(
-                      color: AppTheme.accentCyan.withOpacity(0.35),
-                      blurRadius: 24,
-                      spreadRadius: 0,
+                      color: AppTheme.neonPink.withOpacity(0.4),
+                      blurRadius: 20,
+                      spreadRadius: 2,
                     ),
                   ]
                 : [],
@@ -313,12 +246,12 @@ class _DownloadCVButtonState extends State<_DownloadCVButton> {
                 'Download CV',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 14,
+                  fontSize: 15,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               SizedBox(width: 8),
-              Icon(Icons.download_rounded, color: Colors.white, size: 18),
+              Icon(Icons.download_rounded, color: Colors.white, size: 20),
             ],
           ),
         ),
@@ -352,18 +285,16 @@ class _SocialIconButtonState extends State<_SocialIconButton> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: _hovered
-                  ? AppTheme.accentCyan
-                  : AppTheme.textMuted.withOpacity(0.3),
+              color: _hovered ? AppTheme.neonPurple : AppTheme.textMuted,
             ),
             color: _hovered
-                ? AppTheme.accentCyan.withOpacity(0.1)
+                ? AppTheme.neonPurple.withOpacity(0.1)
                 : Colors.transparent,
           ),
           child: FaIcon(
             widget.icon,
-            color: _hovered ? AppTheme.accentCyan : AppTheme.textSecondary,
-            size: 18,
+            color: _hovered ? AppTheme.neonPurple : AppTheme.textSecondary,
+            size: 20,
           ),
         ),
       ),

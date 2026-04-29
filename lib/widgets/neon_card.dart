@@ -23,34 +23,27 @@ class _NeonCardState extends State<NeonCard> {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeOut,
         transform: _hovered
-            ? (Matrix4.identity()..scale(1.02))
+            ? (Matrix4.identity()..scale(1.03))
             : Matrix4.identity(),
-        transformAlignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          gradient: _hovered ? AppTheme.cardBorderGradient : null,
-          border: _hovered
-              ? null
-              : Border.all(
-                  color: AppTheme.textMuted.withOpacity(0.2),
-                  width: 1,
-                ),
+          borderRadius: BorderRadius.circular(16),
+          gradient: AppTheme.cardBorderGradient,
           boxShadow: _hovered
               ? [
                   BoxShadow(
-                    color: AppTheme.accentCyan.withOpacity(0.2),
-                    blurRadius: 30,
-                    spreadRadius: 0,
+                    color: AppTheme.neonPurple.withOpacity(0.4),
+                    blurRadius: 20,
+                    spreadRadius: 2,
                   ),
                 ]
               : [],
         ),
         child: Container(
-          margin: _hovered ? const EdgeInsets.all(1.5) : EdgeInsets.zero,
+          margin: const EdgeInsets.all(1.5),
           padding: widget.padding ?? const EdgeInsets.all(24),
           decoration: BoxDecoration(
             color: AppTheme.bgCard,
-            borderRadius: BorderRadius.circular(_hovered ? 19 : 20),
+            borderRadius: BorderRadius.circular(15),
           ),
           child: widget.child,
         ),

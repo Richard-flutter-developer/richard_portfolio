@@ -20,20 +20,12 @@ class AboutSection extends StatelessWidget {
         gradient: RadialGradient(
           center: const Alignment(-0.5, 0),
           radius: 1.5,
-          colors: [
-            AppTheme.accentPurple.withOpacity(0.03),
-            AppTheme.bgSecondary,
-          ],
+          colors: [AppTheme.neonPurple.withOpacity(0.04), AppTheme.bgSecondary],
         ),
       ),
       child: Column(
         children: [
-          const SectionTitle(
-            title: 'About',
-            highlight: 'Me',
-            subtitle:
-                "I'm a passionate developer who loves creating pixel-perfect experiences",
-          ),
+          const SectionTitle(title: 'About', highlight: 'Me'),
           if (isMobile) _buildMobileLayout() else _buildDesktopLayout(),
         ],
       ),
@@ -57,11 +49,11 @@ class AboutSection extends StatelessWidget {
                   height: 1.8,
                 ),
               ),
-              const SizedBox(height: 36),
+              const SizedBox(height: 32),
               _buildInfoRow(Icons.phone_rounded, AppConstants.phone),
-              const SizedBox(height: 14),
+              const SizedBox(height: 12),
               _buildInfoRow(Icons.email_rounded, AppConstants.email),
-              const SizedBox(height: 14),
+              const SizedBox(height: 12),
               _buildInfoRow(Icons.location_on_rounded, AppConstants.location),
             ],
           ),
@@ -84,13 +76,13 @@ class AboutSection extends StatelessWidget {
             height: 1.8,
           ),
         ),
-        const SizedBox(height: 36),
+        const SizedBox(height: 32),
         _buildStatsGrid(),
-        const SizedBox(height: 36),
+        const SizedBox(height: 32),
         _buildInfoRow(Icons.phone_rounded, AppConstants.phone),
-        const SizedBox(height: 14),
+        const SizedBox(height: 12),
         _buildInfoRow(Icons.email_rounded, AppConstants.email),
-        const SizedBox(height: 14),
+        const SizedBox(height: 12),
         _buildInfoRow(Icons.location_on_rounded, AppConstants.location),
       ],
     );
@@ -112,21 +104,18 @@ class AboutSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: AppTheme.accentCyan.withOpacity(0.08),
-            borderRadius: BorderRadius.circular(10),
+            color: AppTheme.neonPurple.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(icon, color: AppTheme.accentCyan, size: 18),
+          child: Icon(icon, color: AppTheme.neonPurple, size: 18),
         ),
-        const SizedBox(width: 14),
+        const SizedBox(width: 12),
         Flexible(
           child: Text(
             text,
-            style: const TextStyle(
-              color: AppTheme.textSecondary,
-              fontSize: 14,
-            ),
+            style: const TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
       ],
@@ -153,23 +142,23 @@ class _StatCardState extends State<_StatCard> {
       onExit: (_) => setState(() => _hovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
-        width: 145,
-        padding: const EdgeInsets.all(22),
+        width: 140,
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: _hovered
-                ? AppTheme.accentCyan.withOpacity(0.5)
-                : AppTheme.textMuted.withOpacity(0.15),
+                ? AppTheme.neonPurple
+                : AppTheme.textMuted.withOpacity(0.3),
           ),
           color: _hovered
-              ? AppTheme.accentCyan.withOpacity(0.06)
+              ? AppTheme.neonPurple.withOpacity(0.08)
               : AppTheme.bgCard,
           boxShadow: _hovered
               ? [
                   BoxShadow(
-                    color: AppTheme.accentCyan.withOpacity(0.15),
-                    blurRadius: 20,
+                    color: AppTheme.neonPurple.withOpacity(0.2),
+                    blurRadius: 15,
                   ),
                 ]
               : [],
@@ -178,11 +167,8 @@ class _StatCardState extends State<_StatCard> {
           children: [
             GradientText(
               widget.count,
-              gradient: AppTheme.accentGradient,
-              style: const TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.w800,
-              ),
+              gradient: AppTheme.neonGradient,
+              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             Text(
