@@ -146,44 +146,44 @@ class HeroSection extends StatelessWidget {
       alignment: Alignment.center,
       clipBehavior: Clip.none,
       children: [
-        // Background Ring
+        // Background Glow (matching reference orange/red)
         Container(
-          width: 320,
-          height: 320,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: AppTheme.neonBlue.withOpacity(0.2),
-              width: 1,
-            ),
-          ),
-        ),
-        // Outer Glow
-        Container(
-          width: 240,
-          height: 240,
+          width: 300,
+          height: 300,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
-                color: AppTheme.neonPurple.withOpacity(0.2),
+                color: Colors.orange.withOpacity(0.15),
                 blurRadius: 100,
                 spreadRadius: 20,
               ),
             ],
           ),
         ),
+        // The Ring (matching reference)
+        Container(
+          width: 320,
+          height: 320,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: Colors.orange.withOpacity(0.4),
+              width: 12, // Thicker ring like in reference
+            ),
+          ),
+        ),
         // Floating Symbols
         Positioned(
-          top: 20,
-          left: -40,
+          top: 40,
+          left: -60,
           child: Opacity(
-            opacity: 0.3,
-            child: GradientText(
+            opacity: 0.4,
+            child: const Text(
               '<',
-              gradient: AppTheme.neonGradient,
-              style: const TextStyle(
-                fontSize: 60,
+              style: TextStyle(
+                color: Colors.orange,
+                fontSize: 80,
                 fontWeight: FontWeight.w100,
                 fontFamily: 'Courier',
               ),
@@ -191,83 +191,36 @@ class HeroSection extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 20,
-          right: -40,
+          bottom: 40,
+          right: -60,
           child: Opacity(
-            opacity: 0.3,
-            child: GradientText(
+            opacity: 0.4,
+            child: const Text(
               '>',
-              gradient: AppTheme.neonGradient,
-              style: const TextStyle(
-                fontSize: 60,
+              style: TextStyle(
+                color: Colors.orange,
+                fontSize: 80,
                 fontWeight: FontWeight.w100,
                 fontFamily: 'Courier',
               ),
             ),
           ),
         ),
-        // Main Avatar Card
-        Container(
-          width: 280,
-          height: 280,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24),
-            gradient: AppTheme.cardBorderGradient,
-            boxShadow: [
-              BoxShadow(
-                color: AppTheme.neonPurple.withOpacity(0.3),
-                blurRadius: 40,
-                spreadRadius: 5,
-              ),
-              BoxShadow(
-                color: AppTheme.neonBlue.withOpacity(0.2),
-                blurRadius: 60,
-                spreadRadius: 10,
-              ),
-            ],
-          ),
-          child: Container(
-            margin: const EdgeInsets.all(3),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(22),
-              color: AppTheme.bgCard,
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(22),
-              child: Image.asset(
-                'assets/profile.png',
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Color(0xFF1a1a3e), Color(0xFF0d0d2b)],
-                    ),
-                  ),
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        GradientText(
-                          'RS',
-                          gradient: AppTheme.neonGradient,
-                          style: const TextStyle(
-                            fontSize: 80,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        const Text(
-                          'Flutter Dev',
-                          style: TextStyle(
-                            color: AppTheme.textSecondary,
-                            fontSize: 16,
-                            letterSpacing: 3,
-                          ),
-                        ),
-                      ],
-                    ),
+        // Profile Image (No box)
+        SizedBox(
+          width: 300,
+          height: 300,
+          child: ClipOval(
+            child: Image.asset(
+              'assets/profile.png',
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Container(
+                color: AppTheme.bgCard,
+                child: Center(
+                  child: GradientText(
+                    'RS',
+                    gradient: AppTheme.neonGradient,
+                    style: const TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
