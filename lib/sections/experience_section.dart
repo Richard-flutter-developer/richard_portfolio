@@ -19,12 +19,19 @@ class ExperienceSection extends StatelessWidget {
         gradient: RadialGradient(
           center: const Alignment(0.5, 0.5),
           radius: 1.5,
-          colors: [AppTheme.neonBlue.withOpacity(0.04), AppTheme.bgSecondary],
+          colors: [
+            AppTheme.accentCyan.withOpacity(0.03),
+            AppTheme.bgSecondary,
+          ],
         ),
       ),
       child: Column(
         children: [
-          const SectionTitle(title: 'Work', highlight: 'Experience'),
+          const SectionTitle(
+            title: 'Work',
+            highlight: 'Experience',
+            subtitle: 'My professional journey in Flutter development',
+          ),
           ...AppConstants.experiences.asMap().entries.map(
             (entry) => _ExperienceCard(
               data: entry.value,
@@ -62,7 +69,7 @@ class _ExperienceCardState extends State<_ExperienceCard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (!isMobile) ...[
-              // Timeline
+              // Timeline dot + line
               Column(
                 children: [
                   AnimatedContainer(
@@ -71,41 +78,61 @@ class _ExperienceCardState extends State<_ExperienceCard> {
                     height: 16,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      gradient: _hovered ? AppTheme.neonGradient : null,
+                      gradient: _hovered ? AppTheme.accentGradient : null,
                       border: _hovered
                           ? null
-                          : Border.all(color: AppTheme.neonPurple, width: 2),
+                          : Border.all(
+                              color: AppTheme.accentCyan,
+                              width: 2,
+                            ),
+                      boxShadow: _hovered
+                          ? [
+                              BoxShadow(
+                                color: AppTheme.accentCyan.withOpacity(0.4),
+                                blurRadius: 12,
+                              ),
+                            ]
+                          : [],
                     ),
                   ),
                   if (!widget.isLast)
                     Container(
                       width: 2,
                       height: 200,
-                      color: AppTheme.textMuted.withOpacity(0.3),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            AppTheme.accentCyan.withOpacity(0.3),
+                            AppTheme.textMuted.withOpacity(0.1),
+                          ],
+                        ),
+                      ),
                     ),
                 ],
               ),
-              const SizedBox(width: 24),
+              const SizedBox(width: 28),
             ],
             Expanded(
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 padding: const EdgeInsets.all(28),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(20),
                   border: Border.all(
                     color: _hovered
-                        ? AppTheme.neonPurple.withOpacity(0.6)
-                        : AppTheme.textMuted.withOpacity(0.2),
+                        ? AppTheme.accentCyan.withOpacity(0.4)
+                        : AppTheme.textMuted.withOpacity(0.12),
                   ),
                   color: _hovered
-                      ? AppTheme.neonPurple.withOpacity(0.05)
+                      ? AppTheme.accentCyan.withOpacity(0.04)
                       : AppTheme.bgCard,
                   boxShadow: _hovered
                       ? [
                           BoxShadow(
-                            color: AppTheme.neonPurple.withOpacity(0.15),
-                            blurRadius: 20,
+                            color: AppTheme.accentCyan.withOpacity(0.1),
+                            blurRadius: 24,
                           ),
                         ]
                       : [],
@@ -121,17 +148,17 @@ class _ExperienceCardState extends State<_ExperienceCard> {
                             style: const TextStyle(
                               color: AppTheme.textPrimary,
                               fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
+                            horizontal: 14,
                             vertical: 6,
                           ),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(8),
                             gradient: AppTheme.buttonGradient,
                           ),
                           child: Text(
@@ -139,7 +166,7 @@ class _ExperienceCardState extends State<_ExperienceCard> {
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
@@ -149,15 +176,15 @@ class _ExperienceCardState extends State<_ExperienceCard> {
                     Text(
                       '${widget.data['company']} • ${widget.data['location']}',
                       style: const TextStyle(
-                        color: AppTheme.neonPurple,
+                        color: AppTheme.accentCyan,
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 20),
                     ...List<String>.from(widget.data['points']).map(
                       (point) => Padding(
-                        padding: const EdgeInsets.only(bottom: 10),
+                        padding: const EdgeInsets.only(bottom: 12),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -167,7 +194,7 @@ class _ExperienceCardState extends State<_ExperienceCard> {
                               height: 6,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: AppTheme.neonPurple.withOpacity(0.7),
+                                color: AppTheme.accentCyan.withOpacity(0.6),
                               ),
                             ),
                             const SizedBox(width: 12),

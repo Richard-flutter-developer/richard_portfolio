@@ -27,26 +27,58 @@ class NavBar extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: Responsive.contentPadding(context),
-        vertical: 16,
+        vertical: 14,
       ),
-      color: AppTheme.bgPrimary.withOpacity(0.9),
+      decoration: BoxDecoration(
+        color: AppTheme.bgPrimary.withOpacity(0.85),
+        border: Border(
+          bottom: BorderSide(
+            color: AppTheme.textMuted.withOpacity(0.1),
+            width: 1,
+          ),
+        ),
+      ),
       child: Row(
         children: [
           // Logo
-          Image.asset(
-            'assets/logo.png',
-            height: 40,
-            errorBuilder: (context, error, stackTrace) => GradientText(
-              'RS',
-              gradient: AppTheme.neonGradient,
-              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+          GestureDetector(
+            onTap: () => onNavTap(0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    gradient: AppTheme.accentGradient,
+                  ),
+                  child: const Text(
+                    'RS',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                const Text(
+                  'Richard S',
+                  style: TextStyle(
+                    color: AppTheme.textPrimary,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
             ),
           ),
           const Spacer(),
           if (!isMobile) ...[
             for (int i = 0; i < navItems.length; i++) ...[
               _NavItem(label: navItems[i], onTap: () => onNavTap(i)),
-              if (i < navItems.length - 1) const SizedBox(width: 8),
+              if (i < navItems.length - 1) const SizedBox(width: 4),
             ],
             const SizedBox(width: 20),
           ],
@@ -54,9 +86,17 @@ class NavBar extends StatelessWidget {
           _WhatsAppButton(compact: isMobile),
           if (isMobile) ...[
             const SizedBox(width: 8),
-            IconButton(
-              icon: const Icon(Icons.menu, color: AppTheme.textPrimary),
-              onPressed: () => scaffoldKey.currentState?.openEndDrawer(),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  color: AppTheme.textMuted.withOpacity(0.3),
+                ),
+              ),
+              child: IconButton(
+                icon: const Icon(Icons.menu_rounded, color: AppTheme.textPrimary, size: 22),
+                onPressed: () => scaffoldKey.currentState?.openEndDrawer(),
+              ),
             ),
           ],
         ],
@@ -86,18 +126,18 @@ class _NavItemState extends State<_NavItem> {
         onTap: widget.onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             color: _hovered
-                ? AppTheme.neonPurple.withOpacity(0.15)
+                ? AppTheme.accentCyan.withOpacity(0.08)
                 : Colors.transparent,
           ),
           child: Text(
             widget.label,
             style: TextStyle(
-              color: _hovered ? AppTheme.neonPurple : AppTheme.textSecondary,
-              fontSize: 15,
+              color: _hovered ? AppTheme.accentCyan : AppTheme.textSecondary,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -107,43 +147,64 @@ class _NavItemState extends State<_NavItem> {
   }
 }
 
-class _WhatsAppButton extends StatelessWidget {
+class _WhatsAppButton extends StatefulWidget {
   const _WhatsAppButton({this.compact = false});
   final bool compact;
 
   @override
+  State<_WhatsAppButton> createState() => _WhatsAppButtonState();
+}
+
+class _WhatsAppButtonState extends State<_WhatsAppButton> {
+  bool _hovered = false;
+
+  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => launchUrl(Uri.parse(AppConstants.whatsApp)),
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: compact ? 14 : 20,
-          vertical: 10,
-        ),
-        decoration: BoxDecoration(
-          gradient: AppTheme.buttonGradient,
-          borderRadius: BorderRadius.circular(25),
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const FaIcon(
-              FontAwesomeIcons.whatsapp,
-              color: Colors.white,
-              size: 18,
-            ),
-            if (!compact) ...[
-              const SizedBox(width: 8),
-              const Text(
-                'Whatsapp',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
+    return MouseRegion(
+      onEnter: (_) => setState(() => _hovered = true),
+      onExit: (_) => setState(() => _hovered = false),
+      child: GestureDetector(
+        onTap: () => launchUrl(Uri.parse(AppConstants.whatsApp)),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: EdgeInsets.symmetric(
+            horizontal: widget.compact ? 14 : 20,
+            vertical: 10,
+          ),
+          decoration: BoxDecoration(
+            gradient: AppTheme.buttonGradient,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: _hovered
+                ? [
+                    BoxShadow(
+                      color: AppTheme.accentCyan.withOpacity(0.3),
+                      blurRadius: 16,
+                      spreadRadius: 0,
+                    ),
+                  ]
+                : [],
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const FaIcon(
+                FontAwesomeIcons.whatsapp,
+                color: Colors.white,
+                size: 16,
               ),
+              if (!widget.compact) ...[
+                const SizedBox(width: 8),
+                const Text(
+                  'WhatsApp',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 13,
+                  ),
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
@@ -164,20 +225,36 @@ class NavDrawer extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(24),
-              child: Image.asset(
-                'assets/logo.png',
-                height: 50,
-                errorBuilder: (context, error, stackTrace) => GradientText(
-                  'RS',
-                  gradient: AppTheme.neonGradient,
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
+              child: Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: AppTheme.accentGradient,
+                    ),
+                    child: const Text(
+                      'RS',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
                   ),
-                ),
+                  const SizedBox(width: 12),
+                  const Text(
+                    'Richard S',
+                    style: TextStyle(
+                      color: AppTheme.textPrimary,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ],
               ),
             ),
-            const Divider(color: AppTheme.textMuted, height: 1),
+            Divider(color: AppTheme.textMuted.withOpacity(0.2), height: 1),
             const SizedBox(height: 16),
             for (int i = 0; i < NavBar.navItems.length; i++)
               ListTile(
@@ -190,7 +267,7 @@ class NavDrawer extends StatelessWidget {
                 ),
                 leading: Icon(
                   _navIcons[i],
-                  color: AppTheme.neonPurple,
+                  color: AppTheme.accentCyan,
                   size: 20,
                 ),
                 onTap: () {

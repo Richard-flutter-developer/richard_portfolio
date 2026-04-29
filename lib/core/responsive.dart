@@ -6,10 +6,10 @@ class Responsive {
 
   static bool isTablet(BuildContext context) =>
       MediaQuery.of(context).size.width >= 768 &&
-      MediaQuery.of(context).size.width < 1024;
+      MediaQuery.of(context).size.width < 1200;
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1024;
+      MediaQuery.of(context).size.width >= 1200;
 
   static double screenWidth(BuildContext context) =>
       MediaQuery.of(context).size.width;
@@ -22,7 +22,12 @@ class Responsive {
 
   static double contentPadding(BuildContext context) {
     if (isMobile(context)) return 20;
-    if (isTablet(context)) return 40;
-    return 80;
+    if (isTablet(context)) return 60;
+    return 120;
+  }
+
+  static double maxContentWidth(BuildContext context) {
+    if (isMobile(context)) return double.infinity;
+    return 1200;
   }
 }

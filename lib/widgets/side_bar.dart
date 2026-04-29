@@ -19,20 +19,24 @@ class SideBar extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const RotatedBox(
+            RotatedBox(
               quarterTurns: -1,
               child: Text(
                 'Follow Me',
                 style: TextStyle(
-                  color: AppTheme.textSecondary,
-                  fontSize: 13,
+                  color: AppTheme.textMuted.withOpacity(0.6),
+                  fontSize: 12,
                   fontWeight: FontWeight.w500,
-                  letterSpacing: 2,
+                  letterSpacing: 3,
                 ),
               ),
             ),
             const SizedBox(height: 20),
-            Container(width: 2, height: 50, color: AppTheme.textMuted),
+            Container(
+              width: 1,
+              height: 40,
+              color: AppTheme.textMuted.withOpacity(0.3),
+            ),
             const SizedBox(height: 20),
             _SocialIcon(
               icon: FontAwesomeIcons.linkedinIn,
@@ -71,10 +75,17 @@ class _SocialIconState extends State<_SocialIcon> {
         onTap: () => launchUrl(Uri.parse(widget.url)),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: _hovered
+                ? AppTheme.accentCyan.withOpacity(0.1)
+                : Colors.transparent,
+          ),
           child: FaIcon(
             widget.icon,
-            color: _hovered ? AppTheme.neonPurple : AppTheme.textSecondary,
-            size: 20,
+            color: _hovered ? AppTheme.accentCyan : AppTheme.textMuted,
+            size: 18,
           ),
         ),
       ),

@@ -17,7 +17,11 @@ class SkillsSection extends StatelessWidget {
       color: AppTheme.bgPrimary,
       child: Column(
         children: [
-          const SectionTitle(title: 'My', highlight: 'Skills'),
+          const SectionTitle(
+            title: 'My',
+            highlight: 'Skills',
+            subtitle: 'Technologies and tools I work with',
+          ),
           ...AppConstants.skills.entries.map(
             (entry) => _SkillCategory(category: entry.key, skills: entry.value),
           ),
@@ -35,7 +39,7 @@ class _SkillCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
+      padding: const EdgeInsets.only(bottom: 36),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,7 +49,7 @@ class _SkillCategory extends StatelessWidget {
                 width: 4,
                 height: 20,
                 decoration: BoxDecoration(
-                  gradient: AppTheme.neonGradient,
+                  gradient: AppTheme.accentGradient,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -54,7 +58,7 @@ class _SkillCategory extends StatelessWidget {
                 category,
                 style: const TextStyle(
                   color: AppTheme.textPrimary,
-                  fontSize: 18,
+                  fontSize: 17,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -92,20 +96,20 @@ class _SkillChipState extends State<_SkillChip> {
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: _hovered
-                ? AppTheme.neonPurple
-                : AppTheme.textMuted.withOpacity(0.4),
+                ? AppTheme.accentCyan.withOpacity(0.6)
+                : AppTheme.textMuted.withOpacity(0.2),
           ),
           color: _hovered
-              ? AppTheme.neonPurple.withOpacity(0.12)
+              ? AppTheme.accentCyan.withOpacity(0.08)
               : AppTheme.bgCard,
         ),
         child: Text(
           widget.label,
           style: TextStyle(
-            color: _hovered ? AppTheme.neonPurple : AppTheme.textSecondary,
+            color: _hovered ? AppTheme.accentCyan : AppTheme.textSecondary,
             fontSize: 13,
             fontWeight: FontWeight.w500,
           ),
